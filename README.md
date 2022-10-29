@@ -1,1 +1,1 @@
-# macos-config-catalina
+# macos-config-ventura

@@ -533,6 +533,10 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.barebones.textwrangler.plist" "/Users/steve/Library/Preferences/com.barebones.textwrangler.plist"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.barebones.textwrangler.PreferenceData" "/Users/steve/Library/Preferences/com.barebones.textwrangler.PreferenceData"
 			;;
+		thunderbird)	# Thunderbird.app
+			move_directory_entry "D" "$SOURCE/Library/Thunderbird" "/Users/steve/Library/Thunderbird"
+			move_directory_entry "F" "$SOURCE/Library/Preferences/org.mozilla.thunderbird.plist" "/Users/steve/Library/Preferences/org.mozilla.thunderbird.plist"
+			;;
 		timemachine)	# Time Machine.app
 			;;
 		typora)		    # Typora

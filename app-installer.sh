@@ -2,15 +2,15 @@
 
 # USAGE: [bash] ${HOME}/macos-config-catalina-master/app-installer.sh <app>
 
-AUTHY="1.9.0"
-BBEDIT="13.5.4"
+AUTHY="2.2.1"
+BBEDIT="14.6.1"
 BLACKLIGHT="2.3.5"
 EVERNOTE="7.13_458080"
-FORKLIFT="3.4.3"
+FORKLIFT="3.5.8"
 LITTLESNITCH="4.4.3"
 LOGITECH="9.40.75"
 NAVICAT="121"
-QUERIOUS="3.2"
+QUERIOUS="3.3.2"
 
 case "$1" in
     adguard)

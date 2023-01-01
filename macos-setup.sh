@@ -616,31 +616,15 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			shopt -s dotglob
 			;;
 		# * * * * MISCELLANEOUS * * * *
-#		bash)
-#			#create_symbolic_link "/Users/steve/Dropbox/.bash_history_shared" "/Users/steve/.bash_history"
-#            if [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/bash/.bash_profile" ]; then
-#                create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/bash/.bash_profile" "${HOME}/.bash_profile"
-#                if [ -f "$SOURCE/.hushlogin" ]; then
-#                    move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
-#                fi
-#                if [ -f "$SOURCE/.profile" ]; then
-#                    move_directory_entry "F" "$SOURCE/.profile" "${HOME}/.profile"
-#                fi
-#            else
-#                echo "* * * * iCloud has not finished downloading yet. Please try again later * * * *"
-#            fi
-#			;;
-        bash)
-            if [ "${HOME}/Library/CloudStorage/OneDrive-Personal/.bash/.bash_profile" ]; then
-                if [ -f "$SOURCE/.bash_logout" ]; then
-                    move_directory_entry "F" "$SOURCE/.bash_logout" "${HOME}/.bash_logout"
-                fi
-                if [ -f "$SOURCE/.bash_profile" ]; then
-                    move_directory_entry "F" "$SOURCE/.bash_profile" "${HOME}/.bash_profile"
-                fi
-                if [ -f "$SOURCE/.bashrc" ]; then
-                    move_directory_entry "F" "$SOURCE/.bashrc" "${HOME}/.bashrc"
-                fi
+		bash)
+            if [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.bash_logout" ] && \
+            [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.bash_profile" ] && \
+            [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.bashrc" ] && \
+            [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.profile" ]; then
+                create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.bash_logout" "${HOME}/.bash_logout"
+                create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.bash_profile" "${HOME}/.bash_profile"
+                create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.bashrc" "${HOME}/.bashrc"
+                create_symbolic_link "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.bash/.profile" "${HOME}/.profile"
                 if [ -f "$SOURCE/.hushlogin" ]; then
                     move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
                 fi
@@ -648,29 +632,52 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
                     move_directory_entry "F" "$SOURCE/.profile" "${HOME}/.profile"
                 fi
             else
-                echo "* * * * OneDrive has not finished downloading yet. Please try again later * * * *"
+                echo "* * * * iCloud has not finished downloading yet. Please try again later * * * *"
             fi
             ;;
-#		zsh)
-#            if [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/zsh/.zsh_history" ]; then
-#                move_directory_entry "F" "$SOURCE/.zshenv" "${HOME}/.zshenv"
-#                if [ -f "$SOURCE/.hushlogin" ]; then 
+#        bash)
+#            if [ "${HOME}/Library/CloudStorage/OneDrive-Personal/.bash/.bash_profile" ]; then
+#                if [ -f "$SOURCE/.bash_logout" ]; then
+#                    move_directory_entry "F" "$SOURCE/.bash_logout" "${HOME}/.bash_logout"
+#                fi
+#                if [ -f "$SOURCE/.bash_profile" ]; then
+#                    move_directory_entry "F" "$SOURCE/.bash_profile" "${HOME}/.bash_profile"
+#                fi
+#                if [ -f "$SOURCE/.bashrc" ]; then
+#                    move_directory_entry "F" "$SOURCE/.bashrc" "${HOME}/.bashrc"
+#                fi
+#                if [ -f "$SOURCE/.hushlogin" ]; then
 #                    move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
 #                fi
+#                if [ -f "$SOURCE/.profile" ]; then
+#                    move_directory_entry "F" "$SOURCE/.profile" "${HOME}/.profile"
+#                fi
 #            else
-#                echo "* * * * iCloud has not finished downloading yet. Please try again later * * * *"
+#                echo "* * * * OneDrive has not finished downloading yet. Please try again later * * * *"
 #            fi
-#			;;
-        zsh)
-            if  [ -f "${HOME}/Library/CloudStorage/OneDrive-Personal/.zsh/.zshrc" ]; then
+#            ;;
+		zsh)
+            if [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.zsh/.zsh_history" ] && \
+            [ -d "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.zsh/.zsh_sessions" ] && \
+            [ -f "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.zsh/.zshrc" ]~; then
                 move_directory_entry "F" "$SOURCE/.zshenv" "${HOME}/.zshenv"
                 if [ -f "$SOURCE/.hushlogin" ]; then 
                     move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
                 fi
             else
-                echo "* * * * OneDrive has not finished downloading yet. Please try again later * * * *"
+                echo "* * * * iCloud has not finished downloading yet. Please try again later * * * *"
             fi
             ;;
+#        zsh)
+#            if  [ -f "${HOME}/Library/CloudStorage/OneDrive-Personal/.zsh/.zshrc" ]; then
+#                move_directory_entry "F" "$SOURCE/.zshenv" "${HOME}/.zshenv"
+#                if [ -f "$SOURCE/.hushlogin" ]; then 
+#                    move_directory_entry "F" "$SOURCE/.hushlogin" "${HOME}/.hushlogin"
+#                fi
+#            else
+#                echo "* * * * OneDrive has not finished downloading yet. Please try again later * * * *"
+#            fi
+#            ;;
 		fonts)
 			move_directory_entry "D" "$SOURCE/Library/Fonts" "/Users/steve/Library/Fonts"
 			;;

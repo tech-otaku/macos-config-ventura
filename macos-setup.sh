@@ -405,6 +405,9 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 		maps)			# Maps.app
 			;;
 		marsedit)		# MarsEdit.app
+            # /Users/steve/Library/Containers/com.red-sweater.marsedit5 --> /Users/steve/Library/Containers/MarsEdit
+            # /Users/steve/Library/Containers/com.red-sweater.marsedit5.micropost-extension --> /Users/steve/Library/Containers/Micropost
+            # /Users/steve/Library/Containers/com.red-sweater.marsedit5.MarsEdit-Share-Extension --> /Users/steve/Library/Containers/Send\ to\ MarsEdit
 			move_directory_entry "D" "$SOURCE/Library/Group Containers/493CVA9A35.com.red-sweater" "/Users/steve/Library/Group Containers/493CVA9A35.com.red-sweater"
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.red-sweater.marsedit.plist" "/Users/steve/Library/Preferences/com.red-sweater.marsedit.plist"
 			;;
@@ -503,6 +506,11 @@ main () {	# See https://stackoverflow.com/questions/13588457/forward-function-de
 			move_directory_entry "F" "$SOURCE/Library/Preferences/com.apple.SafariCloudHistoryPushAgent.plist" "/Users/steve/Library/Preferences/com.apple.SafariCloudHistoryPushAgent.plist"
 			move_directory_entry "D" "$SOURCE/Library/Safari" "/Users/steve/Library/Safari"
 			;;
+        screencaps)
+            move_directory_entry "D" "$SOURCE/Screen Capture Staging" "/Users/steve/Screen Capture Staging"
+            [ ! -d "/Users/steve/Library/Workflows/Applications/Folder Actions" ] && mkdir "/Users/steve/Library/Workflows/Applications/Folder Actions"
+            move_directory_entry "F" "$SOURCE/Library/Workflows/Applications/Folder Actions/Add Screen Capture to Photos.workflow" "/Users/steve/Library/Workflows/Applications/Folder Actions/Add Screen Capture to Photos.workflow"
+            ;;
 		screenflow)		# ScreenFlow.app
 			;;
 		screenium)		# Screenium 3 Demo.app
